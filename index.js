@@ -10,6 +10,8 @@ const nums = '0123456789';
 
 const alphabet = katakana + latin + nums;
 
+const colors = [ '#1638cc', '#8ad12e', '#27b3ae', '#cf3513', '#e009cb', '#f71b65', '#0F0' ]
+
 const fontSize = 16;
 const columns = canvas.width/fontSize;
 
@@ -23,7 +25,9 @@ const draw = () => {
     context.fillStyle = 'rgba(0, 0, 0, 0.05)';
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    context.fillStyle = '#0F0';
+    const randomIndex = Math.floor(Math.random() * colors.length)
+    context.fillStyle = colors[randomIndex];
+
     context.font = fontSize + 'px monospace';
 
     for(let i = 0; i < rainDrops.length; i++)
@@ -38,4 +42,4 @@ const draw = () => {
     }
 };
 
-setInterval(draw, 30);
+setInterval(draw, 75);
